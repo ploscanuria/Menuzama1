@@ -7,8 +7,19 @@
 
 <h1>Menu</h1>
 
+<!-- Formular pentru filtrarea articolelor pe categorii -->
+<form method="get" class="mb-3">
+    <div class="form-group">
+        <label for="categoryFilter">Filter by Category:</label>
+        <select id="categoryFilter" name="SelectedCategory" asp-items="Model.Categories" class="form-control">
+            <option value="">All Categories</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-success">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -32,29 +43,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.MenuItem) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
+        @foreach (var item in Model.MenuItem)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.MenuItemType.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.Name)
                 </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
