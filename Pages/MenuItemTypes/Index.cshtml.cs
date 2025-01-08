@@ -23,7 +23,7 @@ namespace Menuzama1.Pages.MenuItemTypes
 
         public async Task OnGetAsync()
         {
-            MenuItemType = await _context.MenuItemType.ToListAsync();
+            MenuItemType = await _context.MenuItemTypes.ToListAsync();
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Menuzama1.Pages.MenuItemTypes
                 return NotFound();
             }
 
-            var menuitemtype =  await _context.MenuItemType.FirstOrDefaultAsync(m => m.ID == id);
+            var menuitemtype =  await _context.MenuItemTypes.FirstOrDefaultAsync(m => m.ID == id);
             if (menuitemtype == null)
             {
                 return NotFound();
@@ -71,7 +71,7 @@ namespace Menuzama1.Pages.MenuItemTypes
 
         private bool MenuItemTypeExists(int id)
         {
-            return _context.MenuItemType.Any(e => e.ID == id);
+            return _context.MenuItemTypes.Any(e => e.ID == id);
         }
     }
 }

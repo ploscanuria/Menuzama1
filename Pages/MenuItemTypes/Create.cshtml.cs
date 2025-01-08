@@ -35,7 +35,7 @@ namespace Menuzama1.Pages.MenuItemTypes
                 return Page();
             }
 
-            _context.MenuItemType.Add(MenuItemType);
+            _context.MenuItemTypes.Add(MenuItemType);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

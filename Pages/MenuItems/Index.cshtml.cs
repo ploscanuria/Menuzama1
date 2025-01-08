@@ -28,10 +28,10 @@ namespace Menuzama1.Pages.MenuItems
         public async Task OnGetAsync()
         {
             // Obține toate categoriile pentru dropdown
-            var categoriesQuery = _context.Category.Select(c => c.Name);
+            var categoriesQuery = _context.Categories.Select(c => c.Name);
 
             // Creează interogarea pentru articolele din meniu
-            var menuItems = _context.MenuItem
+            var menuItems = _context.MenuItems
                 .Include(m => m.Category)
                 .Include(m => m.MenuItemType)
                 .AsQueryable(); // Transformă în IQueryable

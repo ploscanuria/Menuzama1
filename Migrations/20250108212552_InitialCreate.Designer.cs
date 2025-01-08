@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Menuzama1.Migrations
 {
     [DbContext(typeof(Menuzama1Context))]
-    [Migration("20250106112921_AddMenuItemType")]
-    partial class AddMenuItemType
+    [Migration("20250108212552_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace Menuzama1.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Menuzama1.Models.MenuItem", b =>
@@ -75,7 +75,7 @@ namespace Menuzama1.Migrations
 
                     b.HasIndex("MenuItemTypeID");
 
-                    b.ToTable("MenuItem");
+                    b.ToTable("MenuItems");
                 });
 
             modelBuilder.Entity("Menuzama1.Models.MenuItemType", b =>
@@ -92,7 +92,7 @@ namespace Menuzama1.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("MenuItemType");
+                    b.ToTable("MenuItemTypes");
                 });
 
             modelBuilder.Entity("Menuzama1.Models.MenuItem", b =>

@@ -31,7 +31,7 @@ namespace Menuzama1.Pages.MenuItems
                 return NotFound();
             }
 
-            var menuitem =  await _context.MenuItem
+            var menuitem =  await _context.MenuItems
                 .Include(m => m.MenuItemType) // Include relația cu MenuItemType
                 .Include(m => m.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -40,8 +40,8 @@ namespace Menuzama1.Pages.MenuItems
                 return NotFound();
             }
             MenuItem = menuitem;
-            ViewData["MenuItemTypeID"] = new SelectList(_context.MenuItemType, "ID", "Name");
-            ViewData["CategoryID"] = new SelectList(_context.Category, "ID", "Name");
+            ViewData["MenuItemTypeID"] = new SelectList(_context.MenuItemTypes, "ID", "Name");
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "Name");
 
             return Page();
         }
@@ -81,7 +81,7 @@ namespace Menuzama1.Pages.MenuItems
 
         private bool MenuItemExists(int id)
         {
-            return _context.MenuItem.Any(e => e.Id == id);
+            return _context.MenuItems.Any(e => e.Id == id);
         }
     }
 }

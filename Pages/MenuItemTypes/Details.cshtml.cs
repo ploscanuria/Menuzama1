@@ -28,7 +28,7 @@ namespace Menuzama1.Pages.MenuItemTypes
                 return NotFound();
             }
 
-            var menuitemtype = await _context.MenuItemType.FirstOrDefaultAsync(m => m.ID == id);
+            var menuitemtype = await _context.MenuItemTypes.FirstOrDefaultAsync(m => m.ID == id);
             if (menuitemtype == null)
             {
                 return NotFound();

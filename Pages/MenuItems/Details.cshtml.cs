@@ -28,7 +28,7 @@ namespace Menuzama1.Pages.MenuItems
                 return NotFound();
             }
 
-            var menuitem = await _context.MenuItem
+            var menuitem = await _context.MenuItems
                  .Include(m => m.Category) // Include relația cu Category
         .Include(m => m.MenuItemType) // Include relația cu MenuItemType
                 .FirstOrDefaultAsync(m => m.Id == id);

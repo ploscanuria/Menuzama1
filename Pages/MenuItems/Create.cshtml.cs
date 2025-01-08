@@ -21,8 +21,8 @@ namespace Menuzama1.Pages.MenuItems
 
         public IActionResult OnGet()
         {
-            ViewData["CategoryID"] = new SelectList(_context.Category, "ID", "Name");
-            ViewData["MenuItemTypeID"] = new SelectList(_context.MenuItemType, "ID", "Name");
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "Name");
+            ViewData["MenuItemTypeID"] = new SelectList(_context.MenuItemTypes, "ID", "Name");
 
 
             return Page();
@@ -39,7 +39,7 @@ namespace Menuzama1.Pages.MenuItems
                 return Page();
             }
 
-            _context.MenuItem.Add(MenuItem);
+            _context.MenuItems.Add(MenuItem);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

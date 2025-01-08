@@ -29,7 +29,7 @@ namespace Menuzama1.Pages.MenuItemTypes
                 return NotFound();
             }
 
-            var menuitemtype = await _context.MenuItemType.FirstOrDefaultAsync(m => m.ID == id);
+            var menuitemtype = await _context.MenuItemTypes.FirstOrDefaultAsync(m => m.ID == id);
 
             if (menuitemtype == null)
             {
@@ -49,11 +49,11 @@ namespace Menuzama1.Pages.MenuItemTypes
                 return NotFound();
             }
 
-            var menuitemtype = await _context.MenuItemType.FindAsync(id);
+            var menuitemtype = await _context.MenuItemTypes.FindAsync(id);
             if (menuitemtype != null)
             {
                 MenuItemType = menuitemtype;
-                _context.MenuItemType.Remove(MenuItemType);
+                _context.MenuItemTypes.Remove(MenuItemType);
                 await _context.SaveChangesAsync();
             }
 

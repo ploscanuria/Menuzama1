@@ -29,7 +29,7 @@ namespace Menuzama1.Pages.MenuItems
                 return NotFound();
             }
 
-            var menuitem = await _context.MenuItem
+            var menuitem = await _context.MenuItems
            .Include(m => m.Category) // Include relația cu Category
            .Include(m => m.MenuItemType) // Include relația cu MenuItemType
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -52,11 +52,11 @@ namespace Menuzama1.Pages.MenuItems
                 return NotFound();
             }
 
-            var menuitem = await _context.MenuItem.FindAsync(id);
+            var menuitem = await _context.MenuItems.FindAsync(id);
             if (menuitem != null)
             {
                 MenuItem = menuitem;
-                _context.MenuItem.Remove(MenuItem);
+                _context.MenuItems.Remove(MenuItem);
                 await _context.SaveChangesAsync();
             }
 
