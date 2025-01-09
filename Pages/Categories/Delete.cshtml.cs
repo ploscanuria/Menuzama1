@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Menuzama1.Data;
 using Menuzama1.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Menuzama1.Pages.Categories
 {
+    [Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
     {
         private readonly Menuzama1.Data.Menuzama1Context _context;

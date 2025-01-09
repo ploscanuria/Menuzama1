@@ -23,7 +23,16 @@ namespace Menuzama1.Pages.Clients
 
         public async Task OnGetAsync()
         {
-            Client = await _context.Clients.ToListAsync();
+            // Obține lista clienților din baza de date
+            Client = await _context.Clients.Select(client => new Client
+            {
+                ID = client.ID,
+                FullName = client.FullName ?? "Unknown", // Înlocuiește valorile NULL cu valori implicite
+                Adress = client.Adress ?? "Unknown Address",
+                Email = client.Email ?? "Unknown Email",
+                Phone = client.Phone ?? "Unknown Phone"
+            }).ToListAsync();
         }
     }
-}
+ }
+

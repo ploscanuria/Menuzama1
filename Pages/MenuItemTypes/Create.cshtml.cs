@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Menuzama1.Data;
 using Menuzama1.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Menuzama1.Pages.MenuItemTypes
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly Menuzama1.Data.Menuzama1Context _context;

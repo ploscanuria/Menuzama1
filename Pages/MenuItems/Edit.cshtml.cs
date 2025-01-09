@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Menuzama1.Data;
 using Menuzama1.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Menuzama1.Pages.MenuItems
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly Menuzama1.Data.Menuzama1Context _context;
