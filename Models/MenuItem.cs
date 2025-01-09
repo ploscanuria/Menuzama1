@@ -28,6 +28,8 @@ namespace Menuzama1.Models
         public int? MenuItemTypeID { get; set; } // Cheie străină
         public MenuItemType? MenuItemType { get; set; } // Navigation property
 
+        public ICollection<Order>? Orders { get; set; }
+
 
     }
     }
